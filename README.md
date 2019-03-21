@@ -13,8 +13,9 @@
 
 로 사용해보실 수 있습니다.
 
+#### 주요 기능
+
 ```
-주요 기능
 1. 날짜에 따른 할 일 기록 가능
 2. 완료되지 않은 할 일과 완료된 할 일을 달력에 표시
 3. 회원가입 및 로그인의 구현
@@ -29,7 +30,7 @@
 - Redux, Redux Thunk
 - React Contenteditable
 - Material-UI
-- Webpack, Babel,
+- Webpack, Babel
 - date-fns
 - Firebase
 
