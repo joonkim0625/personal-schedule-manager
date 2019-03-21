@@ -14,7 +14,6 @@ import isSameDay from "date-fns/is_same_day";
 // material-ui
 
 import { withStyles } from "@material-ui/core/styles";
-import Badge from "@material-ui/core/Badge";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import red from "@material-ui/core/colors/red";
@@ -22,8 +21,6 @@ import grey from "@material-ui/core/colors/grey";
 
 const styles = theme => ({
   margin: {
-    // margin: theme.spacing.unit * 1
-
     margin: "6px",
     fontSize: "82.5%"
   },
@@ -41,44 +38,14 @@ const styles = theme => ({
   }
 });
 
-// TODO: 나중에 url 값에 의하여 해당 캘린더 cell을 보여줄 수 있도록 설계해야 한다.
-
 class Calendar extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     currentDate: new Date(),
-  //     currentMonth: new Date()
-  //   };
-  // }
-
   componentDidMount() {
-    //  일단 3월달 로 시작하게 만든 다음에 currentDate을 업데이트 해주면 될 수도..
     const today = startOfToday();
 
     this.setState({
       currentDate: today
     });
   }
-
-  // handleDateChange = date => {
-  //   this.setState({
-  //     currentDate: date
-  //   });
-  // };
-
-  // handleNextMonth = () => {
-  //   this.setState({
-  //     currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
-  //   });
-  // };
-
-  // handlePrevMonth = () => {
-  //   this.setState({
-  //     currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
-  //   });
-  // };
 
   renderHeader() {
     const {
@@ -87,26 +54,12 @@ class Calendar extends Component {
       handleNextMonth,
       classes
     } = this.props;
-    const dateFormat = "MMMM YYYY";
+
     const dateFormatMonth = "MMMM";
     const dateFormatYear = "YYYY";
 
     return (
       <div className="header row flex-middle">
-        {/* <div className="col col-start">
-          <span className="icon" onClick={handlePrevMonth}>
-            <ArrowBackIcon />
-          </span>
-          <div className="col col-center">
-            <span>{dateFns.format(currentMonth, dateFormat)}</span>
-          </div>
-          <div className="col col-end" onClick={handleNextMonth}>
-            <span className="icon">
-              <ArrowForwardIcon />
-            </span>
-          </div>
-        </div> */}
-        {/* --- */}
         <div className="flexContainer">
           <span className="icon" onClick={handlePrevMonth}>
             <ArrowBackIcon />
@@ -157,8 +110,6 @@ class Calendar extends Component {
     const { handleDateChange, currentDate, currentMonth, classes } = this.props;
 
     const { todos, auth } = this.props;
-
-    // 선택된 날의 완료되지 않은 할 일 갯수
 
     const authorId = auth.uid;
 

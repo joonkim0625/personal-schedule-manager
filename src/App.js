@@ -25,26 +25,12 @@ class App extends Component {
                 render={() => (
                   <Redirect to={`/${dateFns.format(today, "MM-DD-YYYY")}`} />
                 )}
-                // component={Dashboard}
               />
-              {/* <Route
-                path="/:dayKey"
-                render={({ match, location }) => (
-                  <div css={{ display: 'flex', flex: 1 }}>
-                    <Routines dayKey={match.params.dayKey} />
-                    <Log dayKey={match.params.dayKey} />
-                    <Backlog dayKey={match.params.dayKey} />
-                    <Calendar dayKey={match.params.dayKey} />
-                  </div>
-                )}
-              /> */}
 
               <Route path="/login" component={LogIn} />
               <Route path="/signup" component={SignUp} />
 
               <Route path="/:date" component={Dashboard} />
-
-              {/* <Route path="/:date" component={Calendar} /> */}
             </Switch>
           </div>
         </BrowserRouter>

@@ -33,13 +33,13 @@ const toolTipText = "오늘 할 일 목록의 진행 상황을 보여주는 막�
 
 class Meter extends Component {
   static defaultProps = {
-    percent: 0, // a number between 0 and 1, inclusive
-    width: 100, // the overall width
-    height: 10, // the overall height
-    rounded: true, // if true, use rounded corners
-    color: "#4caf50", // the fill color
-    animate: false, // if true, animate when the percent changes
-    label: "showing the percentage of completed tasks", // a label to describe the contents (for accessibility)
+    percent: 0, // 0 과 1 사이의 값이 들어와야 함
+    width: 100,
+    height: 10,
+    rounded: true, // true이면 둥근 모서리로 표현
+    color: "#4caf50", // 게이지의 색
+    animate: false, // true면 게이지가 변동할 때 애니메이션 발동
+    label: "showing the percentage of completed tasks of the selected day", // 접근성을 위한 라벨
     leftTodos: 0
   };
 

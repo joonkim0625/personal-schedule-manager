@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { withStyles } from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -9,19 +8,20 @@ import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 
 import Calendar from "../calendar/Calendar";
+import MeterFilter from "../layout/MeterFilter";
 import NewTodoForm from "../todos/NewTodoForm";
-
 import ShowDate from "../layout/ShowDate";
 import NewTodoList from "../todos/NewTodoList";
 
 import { CurrentDateContext } from "../../contexts/CurrentDateContext";
 
-import MeterFilter from "../layout/MeterFilter";
+// material-ui
 
-// styles
-
+import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
+// styles
 
 const styles = theme => ({
   root: {
@@ -64,8 +64,6 @@ const styles = theme => ({
   }
 });
 
-// 이 컴포넌트는 아마 달력과 할 일이 추가되었는 지에 대한 노티피케이션 정도만 있을 것 같아요?
-
 class Dashboard extends Component {
   render() {
     const {
@@ -98,7 +96,6 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <div className={classes.root}>
-          {/* Page Layout here */}
           <Grid className={classes.gridContainer} container spacing={24}>
             <Grid
               className={classNames(
@@ -111,8 +108,6 @@ class Dashboard extends Component {
               lg={5}
             >
               <ShowDate currentDate={currentDate} />
-              {/* 할 일 목록의 작성 */}
-              {/* 미터 필터 */}
               <MeterFilter todos={todos} auth={auth} percent={leftTodos} />
               <NewTodoForm currentDate={currentDate} />
 
@@ -141,8 +136,6 @@ class Dashboard extends Component {
               </div>
             </Grid>
             <Grid className={classes.calendarGrid} item sm={8} md={7} lg={7}>
-              {/* 여기에 캘린더가 들어옴 */}
-
               <Calendar
                 auth={auth}
                 todos={todos}
@@ -153,16 +146,6 @@ class Dashboard extends Component {
                 handleNextMonth={handleNextMonth}
                 handlePrevMonth={handlePrevMonth}
               />
-              {/* <ShowMonths
-                auth={auth}
-                todos={todos}
-                currentDate={currentDate}
-                currentMonth={currentMonth}
-                handleDateChange={handleDateChange}
-                handleMonthChange={handleMonthChange}
-                handleNextMonth={handleNextMonth}
-                handlePrevMonth={handlePrevMonth}
-              /> */}
             </Grid>
           </Grid>
         </div>
@@ -176,23 +159,13 @@ Dashboard.propTypes = {
 };
 
 // loading data
-// 여기서 바로 하나의 유저와 관련된 정보만 빼올 수 없나?
+
 const mapStateToProps = state => {
   return {
-    // state.content.contents to firebase database
-    // contents: state.firestore.ordered.contents,
     auth: state.firebase.auth,
     todos: state.firestore.ordered.todos
   };
 };
-
-// export default compose(
-//   connect(mapStateToProps),
-//   firestoreConnect([
-//     { collection: "contents", orderBy: ["createdAt", "desc"] },
-//     { collection: "todos", orderBy: ["createdAt"] }
-//   ])
-// )(withStyles(styles)(Dashboard));
 
 export default props => {
   const HOC = compose(

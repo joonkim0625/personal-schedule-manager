@@ -17,7 +17,6 @@ export default class CurrentDateProvider extends Component {
     });
   }
 
-  // 이게 onDateClick 과 같은 것
   handleDateChange = date => {
     this.setState({
       currentDate: date

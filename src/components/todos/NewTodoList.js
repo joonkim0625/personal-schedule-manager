@@ -111,8 +111,6 @@ class NewTodoList extends Component {
     const { currentDate } = this.props;
     const { todos, isDone, auth, classes } = this.props;
 
-    // console.log(todos && todos.sort((a, b) => a.dateCreated - b.dateCreated));
-
     const renderTodoList = currentDate ? (
       <div>
         <ul>
@@ -130,11 +128,6 @@ class NewTodoList extends Component {
               .map(item => {
                 return (
                   <div key={item.id} className={classes.todoListBox}>
-                    {/* <input
-                      type="checkbox"
-                      checked={item.isComplete}
-                      onChange={() => this.checkTodo(item.id, !item.isComplete)}
-                    /> */}
                     <Checkbox
                       className={classNames(
                         classes.todoListItems,

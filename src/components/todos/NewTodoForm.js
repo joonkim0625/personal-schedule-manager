@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 
-// TODO: input의 스타일링을 좀 더 고민해보자.
-
 const styles = theme => ({
   container: {
     display: "flex",

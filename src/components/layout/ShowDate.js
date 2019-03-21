@@ -49,11 +49,6 @@ class ShowDate extends Component {
     const { classes, currentDate } = this.props;
     console.log(this.props.currentDate.toLocaleDateString("en", options));
 
-    // 스타일을.. 어떻게 해야할까?
-
-    // function compareDates(a, b) {
-    //   return a && a.toISOString().slice(0, 10) === b.toISOString().slice(0, 10);
-    // }
     return (
       <React.Fragment>
         <CssBaseline />

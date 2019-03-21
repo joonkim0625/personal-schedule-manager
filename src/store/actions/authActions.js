@@ -42,7 +42,6 @@ export const signUp = newUser => {
           .set({
             firstName: newUser.firstName,
             lastName: newUser.lastName
-            // 이니셜 등을 추가해 볼 수도 있겠다.
           });
       })
       .then(() => {

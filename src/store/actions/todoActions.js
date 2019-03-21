@@ -1,19 +1,10 @@
-import { getFirebase } from "react-redux-firebase";
-
 export const createNewTodo = (date, todo) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to database
 
-    const firebase = getFirebase();
     const firestore = getFirestore();
 
     const authorId = getState().firebase.auth.uid;
-
-    const todos = getState().firestore.ordered.todos;
-
-    // 이게.. 무슨 그런.. 머랄까 .. 만들 때 조건을 통해서 없으면 생성하고 있으면 업데이트를 하게 해야할 것 같다.
-
-    // const dateFilter = todos.find(todo => todo.createdAt === date);
 
     firestore
       .collection("todos")

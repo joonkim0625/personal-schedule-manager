@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Link } from "@material-ui/core";
+
 import LoggedInLinks from "./LoggedInLinks";
 import { connect } from "react-redux";
 
@@ -111,16 +110,6 @@ class Navbar extends Component {
     open: false,
     now: new Date()
   };
-
-  // componentDidMount() {
-  //   setInterval(
-  //     () =>
-  //       this.setState({
-  //         now: new Date()
-  //       }),
-  //     1000
-  //   );
-  // }
 
   handleDrawerOpen = () => {
     this.setState({
