@@ -111,6 +111,28 @@ class NewTodoList extends Component {
     const { currentDate } = this.props;
     const { todos, isDone, auth, classes } = this.props;
 
+    let undoneTodosLength =
+      todos &&
+      todos
+        .filter(item => item.authorId === auth.uid)
+        .filter(
+          item =>
+            compareDates(item.date.toDate(), currentDate) &&
+            item.isComplete === false
+        ).length;
+
+    let doneTodosLength =
+      todos &&
+      todos
+        .filter(item => item.authorId === auth.uid)
+        .filter(
+          item =>
+            compareDates(item.date.toDate(), currentDate) &&
+            item.isComplete === true
+        ).length;
+
+    console.log(doneTodosLength, undoneTodosLength);
+
     const renderTodoList = currentDate ? (
       <div>
         <ul>
