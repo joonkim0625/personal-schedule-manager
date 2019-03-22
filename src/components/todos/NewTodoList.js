@@ -28,28 +28,28 @@ const styles = theme => ({
   checked: {},
 
   checkBox: {
-    color: "#e53935"
+    color: "grey"
   },
   textStyle: {
     color: grey[100],
-    fontSize: 18,
+    fontSize: "1.1rem",
     display: "inline-block"
   },
   icon: {
     color: grey[300],
-    fontSize: 18,
+    fontSize: "1.2rem",
     marginLeft: "10px",
     cursor: "pointer"
   },
 
   todoListBox: {
     display: "table",
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive"
   },
   todoListItems: {
     display: "table-cell",
     verticalAlign: "middle",
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive"
   }
 });
 

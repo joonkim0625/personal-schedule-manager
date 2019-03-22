@@ -129,7 +129,7 @@ main {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 24px;
-  padding: 1.5em 0;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -145,19 +145,19 @@ main {
 }
 
 .calendar .header .icon:first-of-type {
-  margin-left: 1em;
+  margin-left: 2rem;
 }
 
 .calendar .header .icon:last-of-type {
-  margin-right: 1em;
+  margin-right: 2rem;
 }
 
 .calendar .days {
   text-transform: uppercase;
   font-weight: 400;
   color: var(--text-color-light);
-  font-size: 80%;
-  padding: 0.75em 0;
+  font-size: 60%;
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-color);
   text-align: center;
 }
@@ -168,8 +168,8 @@ main {
     text-transform: uppercase;
     font-weight: 400;
     color: var(--text-color-light);
-    font-size: 70%;
-    padding: 0.75em 0;
+    font-size: 50%;
+    padding: 0.75rem 0;
     border-bottom: 1px solid var(--border-color);
     text-align: center;
   }
@@ -177,7 +177,7 @@ main {
 
 .calendar .body .cell {
   position: relative;
-  height: 5.7em;
+  height: 5.5rem;
   border-right: 1px solid var(--border-color);
   overflow: hidden;
   cursor: pointer;
@@ -189,7 +189,7 @@ main {
   /* for cells */
   .calendar .body .cell {
     position: relative;
-    height: 3em;
+    height: 3.5rem;
     border-right: 1px solid var(--border-color);
     overflow: hidden;
     cursor: pointer;
@@ -233,8 +233,8 @@ main {
   /* position: absolute; */
   font-size: 90%;
   line-height: 1;
-  top: 0.75em;
-  right: 0.75em;
+  top: 0.75rem;
+  right: 0.75rem;
   font-weight: 700;
 }
 
@@ -248,30 +248,18 @@ main {
   line-height: 1;
   color: var(--main-color);
   opacity: 0;
-  font-size: 8em;
+  font-size: 8rem;
   position: absolute;
-  top: -0.2em;
-  right: -0.05em;
+  top: -0.2rem;
+  right: -0.05rem;
   transition: 0.25s ease-out;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.07rem;
 }
 
 .calendar .body .cell:hover .bg,
 .calendar .body .selected .bg {
   opacity: 0.05;
   transition: 0.5s ease-in;
-}
-
-/* --- */
-
-.Calendar-cell-dotted {
-  height: 0.5em;
-  width: 0.5em;
-  position: absolute;
-  bottom: 0.25em;
-  left: 1.25em;
-  background: red;
-  border-radius: 50%;
 }
 
 .Sunday {

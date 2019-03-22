@@ -56,7 +56,7 @@ const styles = theme => ({
   sectionTitle: {
     margin: "20px 0 0 30px",
     color: "white",
-    fontFamily: "'Gamja Flower', cursive",
+    fontFamily: "'Nanum Gothic', cursive",
     display: "inline-block"
   },
   showDate: {

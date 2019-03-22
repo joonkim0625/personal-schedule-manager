@@ -13,7 +13,7 @@ const styles = theme => ({
   dateText: {
     fontSize: "26px",
     color: "white",
-    fontFamily: "'Gamja Flower', cursive "
+    fontFamily: "'Nanum Gothic', cursive "
   },
 
   redText: {

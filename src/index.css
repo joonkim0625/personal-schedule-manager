@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Gamja Flower", cursive;
+  font-family: "Nanum Gothic", cursive;
   min-height: 100%;
   min-width: 360px;
   background-color: white !important;
@@ -11,28 +11,27 @@ body {
 .badge1[databadge]:after {
   content: attr(databadge);
   position: absolute;
-  top: 3px;
-  right: 1px;
-  font-size: 0.9em;
-  background: #e53935;
-  color: white;
+  top: 6px;
+  right: 4px;
+  font-size: 0.9rem;
+  background: grey;
+  color: transparent;
   width: 10px;
-  /* height: 18px; */
   height: 20px;
   text-align: center;
   line-height: 20px;
-  /* border-radius: 50%; */
+
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-
+  transform: rotate(50deg);
   /* box-shadow: 0 0 1px #333; */
 }
 
 .badge1[databadge="0"]:after {
   content: "";
   position: absolute;
-  top: 3px;
-  right: 1px;
+  top: 6px;
+  right: 4px;
   font-size: 0.9em;
   background: transparent;
   color: white;
@@ -45,7 +44,6 @@ body {
   border: 1px solid lightgray;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border-left: 0;
 }
 
 /* 완료 배지 */
@@ -53,12 +51,12 @@ body {
 .badge2[databadgedone]:after {
   content: attr(databadgedone);
   position: absolute;
-  top: 3px;
+  top: -2px;
   right: 11px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   background: #4caf50;
-  color: white;
-  width: 12px;
+  color: transparent;
+  width: 10px;
 
   height: 20px;
   text-align: center;
@@ -66,16 +64,17 @@ body {
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  transform: rotate(50deg);
 }
 
 .badge2[databadgedone="0"]:after {
   content: "";
   position: absolute;
-  top: 3px;
+  top: -2px;
   right: 11px;
   font-size: 0.9em;
   background: transparent;
-  color: white;
+  color: transparent;
   width: 10px;
 
   height: 20px;
@@ -85,5 +84,45 @@ body {
   border: 1px solid lightgray;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-right: 0;
+  /* border-right: 0; */
+}
+
+.badge1Text[databadge]:after {
+  position: absolute;
+  content: attr(databadge);
+  font-size: 0.5em;
+  top: 11px;
+  right: 6px;
+  z-index: 5;
+  color: white;
+}
+
+.badge1Text[databadge="0"]:after {
+  position: absolute;
+  content: attr(databadge);
+  font-size: 0.5em;
+  top: 12px;
+  right: 5px;
+  z-index: 5;
+  color: transparent;
+}
+
+.badge2Text[databadgedone]:after {
+  position: absolute;
+  content: attr(databadgedone);
+  font-size: 0.5em;
+  top: 3px;
+  right: 12px;
+  z-index: 5;
+  color: white;
+}
+
+.badge2Text[databadgedone="0"]:after {
+  position: absolute;
+  content: attr(databadgedone);
+  font-size: 0.5em;
+  top: 4px;
+  right: 12px;
+  z-index: 5;
+  color: transparent;
 }

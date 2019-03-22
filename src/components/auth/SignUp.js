@@ -6,15 +6,16 @@ import { Link as RouterLink } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
+// img
+import logo from "../../images/schedule-logo.png";
+
 // material-ui
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControl from "@material-ui/core/FormControl";
 import Link from "@material-ui/core/Link";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -35,23 +36,25 @@ const styles = theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing.unit * 6,
+    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 4,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
       .spacing.unit * 3}px`
   },
-  avatar: {
-    margin: theme.spacing.unit,
-    backgroundColor: theme.palette.secondary.main
+
+  img: {
+    width: "4rem",
+    marginBottom: "20px"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing.unit
   },
   submit: {
-    fontFamily: "'Gamja Flower', cursive",
+    fontFamily: "'Nanum Gothic', cursive",
     marginTop: theme.spacing.unit * 3,
     color: "white",
     backgroundColor: "#24292e",
@@ -71,12 +74,19 @@ const styles = theme => ({
       borderBottomColor: "grey"
     }
   },
+  signUpText: {
+    fontStyle: {
+      fontFamily: "'Nanum Gothic', cursive",
+      fontSize: "1.3rem"
+    }
+  },
   fontStyle: {
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive",
+    fontSize: "1.1rem"
   },
   errorMsg: {
     margin: "8px 0 0 0",
-    fontFamily: "'Gamja Flower', cursive",
+    fontFamily: "'Nanum Gothic', cursive",
     textAlign: "center"
   },
   logInButton: {
@@ -85,7 +95,7 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: "grey"
     },
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive"
   },
   text: {
     marginTop: "20px"
@@ -127,10 +137,14 @@ class SignUp extends Component {
       <main className={classes.main}>
         <CssBaseline />
         <Paper className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography className={classes.fontStyle} component="h1" variant="h5">
+          <div>
+            <img className={classes.img} alt="logo" src={logo} />
+          </div>
+          <Typography
+            className={classes.signUpText}
+            component="h1"
+            variant="h5"
+          >
             회원가입
           </Typography>
           <form onSubmit={this.handleSubmit} className={classes.form}>

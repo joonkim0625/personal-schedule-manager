@@ -176,6 +176,8 @@ class Calendar extends Component {
             }}
           >
             <span className="number badge1 " databadge={undoneTodosLength}>
+              <span className="badge1Text" databadge={undoneTodosLength} />
+              <span className="badge2Text" databadgedone={doneTodosLength} />
               <span className="badge2" databadgedone={doneTodosLength} />
               {formattedDate}
             </span>

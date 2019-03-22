@@ -16,7 +16,7 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: "grey"
     },
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive"
   }
 });
 

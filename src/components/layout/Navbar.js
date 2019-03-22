@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
 import LoggedInLinks from "./LoggedInLinks";
 import { connect } from "react-redux";
+
+// img
+import logo from "../../images/schedule-logo.png";
 
 // styles
 
@@ -66,6 +68,11 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
   },
+  toolBar: {
+    display: "flex",
+    position: "relative",
+    alignItems: "space-between"
+  },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
@@ -82,19 +89,53 @@ const styles = theme => ({
     }),
     marginLeft: 0
   },
-  homeTextStyle: {
+  titleText: {
+    display: "block",
     margin: "0 auto"
   },
+  homeTextStyle: {
+    [theme.breakpoints.between("xs", "sm")]: {
+      display: "none"
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "0.875rem",
+      display: "block",
+      marginLeft: "4rem"
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "0.875rem",
+      display: "block",
+      marginLeft: "4rem"
+    }
+  },
+  img: {
+    width: "2rem"
+  },
+  anchor: {},
+
+  loggedInTextStyle: {
+    margin: 0,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    marginRight: "-50%"
+  },
+
   linksStyle: {
     display: "flex",
     [theme.breakpoints.between("xs", "sm")]: {
       display: "none"
     },
     [theme.breakpoints.up("sm")]: {
-      display: "block"
+      display: "block",
+      position: "absolute",
+      right: 0
     },
     [theme.breakpoints.up("lg")]: {
-      display: "block"
+      display: "block",
+      position: "absolute",
+      right: 0
     }
   },
   list: {
@@ -142,7 +183,7 @@ class Navbar extends Component {
               [classes.appBarShift]: open
             })}
           >
-            <Toolbar disableGutters={!open}>
+            <Toolbar className={classes.toolBar} disableGutters={!open}>
               {auth.uid ? (
                 <IconButton
                   color="inherit"
@@ -158,13 +199,17 @@ class Navbar extends Component {
               ) : null}
 
               {auth.uid === undefined ? (
-                <span className={classes.homeTextStyle}>
-                  Personal Schedule Manager
-                </span>
+                <span className={classes.titleText}>Schedule Manager</span>
               ) : (
-                <span className={classes.homeTextStyle}>
-                  {profile.firstName}'s Schedule Manager
-                </span>
+                <React.Fragment>
+                  <span className={classes.homeTextStyle}>
+                    {profile.firstName}'s Schedule Manager
+                  </span>
+
+                  <div className={classes.loggedInTextStyle}>
+                    <img className={classes.img} alt="logo" src={logo} />
+                  </div>
+                </React.Fragment>
               )}
 
               <div className={classes.linksStyle}>

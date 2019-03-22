@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   text: {
-    fontFamily: "'Gamja Flower', cursive"
+    fontFamily: "'Nanum Gothic', cursive"
   }
 });
 
