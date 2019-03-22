@@ -160,6 +160,7 @@ class SignUp extends Component {
                 이메일
               </InputLabel>
               <Input
+                placeholder="example@example.com"
                 id="email"
                 name="email"
                 autoFocus
@@ -182,6 +183,7 @@ class SignUp extends Component {
                 비밀번호
               </InputLabel>
               <Input
+                placeholder="최소 6자리를 입력해주세요."
                 name="password"
                 type="password"
                 id="password"

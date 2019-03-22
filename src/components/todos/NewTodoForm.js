@@ -17,6 +17,14 @@ const styles = theme => ({
   form: {
     margin: "20px 0 0 20px"
   },
+  disabled: {
+    display: "inline-block",
+    margin: "15px 0 0 5px",
+    fontSize: "1.2rem",
+
+    color: "#f44336",
+    fontFamily: "Nanum Gothic"
+  },
   input: {
     margin: theme.spacing.unit,
     fontSize: "1.2rem",
@@ -42,6 +50,7 @@ class NewTodoForm extends Component {
       date: this.props.currentDate
     };
   }
+
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
@@ -66,20 +75,47 @@ class NewTodoForm extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, todos, currentDate, auth } = this.props;
+
+    let undoneTodosLength =
+      todos &&
+      todos
+        .filter(item => item.authorId === auth.uid)
+        .filter(
+          item =>
+            compareDates(item.date.toDate(), currentDate) &&
+            item.isComplete === false
+        ).length;
+
+    let doneTodosLength =
+      todos &&
+      todos
+        .filter(item => item.authorId === auth.uid)
+        .filter(
+          item =>
+            compareDates(item.date.toDate(), currentDate) &&
+            item.isComplete === true
+        ).length;
+
     return (
       <div>
         <form className={classes.form} onSubmit={this.handleSubmit}>
-          <Input
-            placeholder="할 일을 적어주세요!"
-            className={classNames(classes.input, classes.cssUnderline)}
-            id="todo"
-            type="text"
-            name="newTodo"
-            value={this.state.todo}
-            onChange={this.handleChange}
-            required
-          />
+          {doneTodosLength >= 20 || undoneTodosLength >= 20 ? (
+            <p className={classNames(classes.disabled, classes.cssUnderline)}>
+              할 일이 너무 많아요. 몸을 생각하세요!
+            </p>
+          ) : (
+            <Input
+              placeholder="할 일을 적어주세요!"
+              className={classNames(classes.input, classes.cssUnderline)}
+              id="todo"
+              type="text"
+              name="newTodo"
+              value={this.state.todo}
+              onChange={this.handleChange}
+              required
+            />
+          )}
         </form>
       </div>
     );
@@ -106,3 +142,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withStyles(styles)(NewTodoForm));
+
+function compareDates(a, b) {
+  return a && a.toISOString().slice(0, 10) === b.toISOString().slice(0, 10);
+}
