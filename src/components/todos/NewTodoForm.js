@@ -20,7 +20,7 @@ const styles = theme => ({
   input: {
     margin: theme.spacing.unit,
     fontSize: "1.2rem",
-    width: "60%",
+
     minWidth: "45%",
     borderBottom: "1px solid white",
     color: "white",

@@ -35,9 +35,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: "center"
   },
-  gridContainer: {
-    flexWrap: "wrap-reverse"
-  },
+  gridContainer: {},
 
   todoGrid: {
     width: "100%",
@@ -96,16 +94,16 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <div className={classes.root}>
-          <Grid className={classes.gridContainer} container spacing={24}>
-            <Grid
+          <Grid container spacing={24}>
+            {/* <Grid
               className={classNames(
                 classes.todoGrid,
                 classes.todoGridContainer
               )}
               item
               sm={4}
-              md={5}
-              lg={5}
+              md={4}
+              lg={4}
             >
               <ShowDate currentDate={currentDate} />
               <MeterFilter todos={todos} auth={auth} percent={leftTodos} />
@@ -135,7 +133,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </Grid>
-            <Grid className={classes.calendarGrid} item sm={8} md={7} lg={7}>
+            <Grid className={classes.calendarGrid} item sm={8} md={8} lg={8}>
               <Calendar
                 auth={auth}
                 todos={todos}
@@ -146,6 +144,56 @@ class Dashboard extends Component {
                 handleNextMonth={handleNextMonth}
                 handlePrevMonth={handlePrevMonth}
               />
+            </Grid> */}
+            <Grid className={classes.calendarGrid} item sm={8} md={8} lg={8}>
+              <Calendar
+                auth={auth}
+                todos={todos}
+                currentDate={currentDate}
+                currentMonth={currentMonth}
+                handleDateChange={handleDateChange}
+                handleMonthChange={handleMonthChange}
+                handleNextMonth={handleNextMonth}
+                handlePrevMonth={handlePrevMonth}
+              />
+            </Grid>
+            <Grid
+              className={classNames(
+                classes.todoGrid,
+                classes.todoGridContainer
+              )}
+              item
+              sm={4}
+              md={4}
+              lg={4}
+            >
+              <ShowDate currentDate={currentDate} />
+              <MeterFilter todos={todos} auth={auth} percent={leftTodos} />
+              <NewTodoForm currentDate={currentDate} />
+
+              <div>
+                <div className={classes.todoContainer}>
+                  <Typography className={classes.sectionTitle}>
+                    오늘의 할 일
+                  </Typography>
+                  <NewTodoList
+                    todos={todos}
+                    auth={auth}
+                    currentDate={currentDate}
+                  />
+                </div>
+                <div className={classes.todoContainer}>
+                  <Typography className={classes.sectionTitle}>
+                    완료된 할 일
+                  </Typography>
+                  <NewTodoList
+                    todos={todos}
+                    auth={auth}
+                    isDone
+                    currentDate={currentDate}
+                  />
+                </div>
+              </div>
             </Grid>
           </Grid>
         </div>

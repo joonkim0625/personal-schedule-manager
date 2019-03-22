@@ -198,22 +198,12 @@ main {
   }
 }
 
-/* 가장 큰 div인 calendar 내의 div인 body 내의 css명을 작성하면 스타일이 적용된다. */
-/* .calendar .body .hasTodo {
-  background-color: lightgrey;
-} */
-
 .calendar .body .cell:hover {
   background: var(--bg-color);
   transition: 0.5s ease-out;
 }
 
 .calendar .body .selected {
-  /* border-left: 4px solid transparent;
-  border-image: linear-gradient(45deg, #1a8fff 0%, #53cbf1 40%);
-  border-image-slice: 1; */
-  /* background-color: darkgray; */
-
   border: 1px solid #191919;
 }
 
