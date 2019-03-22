@@ -175,12 +175,29 @@ class Calendar extends Component {
               );
             }}
           >
-            <span className="number badge1 " databadge={undoneTodosLength}>
-              <span className="badge1Text" databadge={undoneTodosLength} />
-              <span className="badge2Text" databadgedone={doneTodosLength} />
+            <div className="contents">
+              <span className="badge1 " databadge={undoneTodosLength} />
+              {undoneTodosLength >= 10 ? (
+                <span
+                  className="badge1TextOverTen"
+                  databadge={undoneTodosLength}
+                />
+              ) : (
+                <span className="badge1Text" databadge={undoneTodosLength} />
+              )}
+              {/* <span className="badge1Text" databadge={undoneTodosLength} /> */}
+              {/* <span className="badge2Text" databadgedone={doneTodosLength} /> */}
+              {doneTodosLength >= 10 ? (
+                <span
+                  className="badge2TextOverTen"
+                  databadgedone={doneTodosLength}
+                />
+              ) : (
+                <span className="badge2Text" databadgedone={doneTodosLength} />
+              )}
               <span className="badge2" databadgedone={doneTodosLength} />
-              {formattedDate}
-            </span>
+            </div>
+            <span className="number">{formattedDate}</span>
           </div>
         );
         day = dateFns.addDays(day, 1);

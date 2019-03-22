@@ -190,11 +190,6 @@ class NewTodoList extends Component {
   }
 }
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     todo: state.firestore.data.todos
-//   };
-// };
 const mapDispatchToProps = dispatch => {
   return {
     deleteTodo: todoId => dispatch(deleteTodo(todoId)),
@@ -202,28 +197,6 @@ const mapDispatchToProps = dispatch => {
     editTodo: (todoId, todo) => dispatch(editTodo(todoId, todo))
   };
 };
-
-// export default props => {
-//   const HOC = compose(
-//     connect(
-//       mapStateToProps,
-//       mapDispatchToProps
-//     ),
-//     firestoreConnect([{ collection: "todos" }])
-//   )(NewTodoList);
-
-//   return (
-//     <CurrentDateContext.Consumer>
-//       {({ state, handleDateChange }) => (
-//         <HOC
-//           currentDate={state.currentDate}
-//           handleDateChange={handleDateChange}
-//           {...props}
-//         />
-//       )}
-//     </CurrentDateContext.Consumer>
-//   );
-// };
 
 NewTodoList.propTypes = {
   classes: PropTypes.object.isRequired
