@@ -28,7 +28,7 @@ const styles = theme => ({
   checked: {},
 
   checkBox: {
-    color: "grey"
+    color: grey[400]
   },
   textStyle: {
     color: grey[100],
