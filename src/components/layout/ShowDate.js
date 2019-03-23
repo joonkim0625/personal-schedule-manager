@@ -47,7 +47,6 @@ class ShowDate extends Component {
 
   render() {
     const { classes, currentDate } = this.props;
-    console.log(this.props.currentDate.toLocaleDateString("en", options));
 
     return (
       <React.Fragment>

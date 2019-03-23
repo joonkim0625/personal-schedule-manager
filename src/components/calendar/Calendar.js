@@ -39,6 +39,10 @@ const styles = theme => ({
 });
 
 class Calendar extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     const today = startOfToday();
 
@@ -65,7 +69,6 @@ class Calendar extends Component {
             <ArrowBackIcon />
           </span>
 
-          {/* <span>{dateFns.format(currentMonth, dateFormat)}</span> */}
           <div>
             <span className={classes.monthText}>
               {dateFns.format(currentMonth, dateFormatMonth)}
@@ -107,9 +110,14 @@ class Calendar extends Component {
   }
 
   renderCells() {
-    const { handleDateChange, currentDate, currentMonth, classes } = this.props;
-
-    const { todos, auth } = this.props;
+    const {
+      handleDateChange,
+      currentDate,
+      currentMonth,
+      classes,
+      todos,
+      auth
+    } = this.props;
 
     const authorId = auth.uid;
 
@@ -164,12 +172,13 @@ class Calendar extends Component {
                   : dateFns.isSameDay(day, currentDate)
                   ? "selected"
                   : ""
-              } ${hasTodo ? "hasTodo" : ""}`,
+              } ${hasTodo ? "hasTodo" : ""} `,
               classes.cellStyle
             )}
             key={day}
             onClick={() => {
               handleDateChange(dateFns.parse(cloneDay));
+
               this.props.history.push(
                 `/${dateFns.format(cloneDay, "MM-DD-YYYY")}`
               );
@@ -185,8 +194,7 @@ class Calendar extends Component {
               ) : (
                 <span className="badge1Text" databadge={undoneTodosLength} />
               )}
-              {/* <span className="badge1Text" databadge={undoneTodosLength} /> */}
-              {/* <span className="badge2Text" databadgedone={doneTodosLength} /> */}
+
               {doneTodosLength >= 10 ? (
                 <span
                   className="badge2TextOverTen"

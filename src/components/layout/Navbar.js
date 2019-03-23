@@ -172,7 +172,6 @@ class Navbar extends Component {
     const { classes, theme, profile, auth } = this.props;
     const { open } = this.state;
 
-    console.log(auth.uid);
     return (
       <React.Fragment>
         <div className={classes.root}>

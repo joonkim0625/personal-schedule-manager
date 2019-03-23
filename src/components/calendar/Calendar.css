@@ -260,4 +260,7 @@ main {
     background: var(--neutral-color);
     transition: 0.25s ease-out;
   }
+  .calendar .body .selected {
+    background-color: #f5f5f5;
+  }
 }

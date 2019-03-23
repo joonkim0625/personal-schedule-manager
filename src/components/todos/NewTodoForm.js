@@ -23,7 +23,8 @@ const styles = theme => ({
     fontSize: "1.2rem",
 
     color: "#f44336",
-    fontFamily: "Nanum Gothic"
+    fontFamily: "Nanum Gothic",
+    cursor: "not-allowed"
   },
   input: {
     margin: theme.spacing.unit,
