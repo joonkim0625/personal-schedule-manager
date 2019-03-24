@@ -46,9 +46,9 @@ const styles = theme => ({
     })
   },
   menuButton: {
-    position: "absolute",
-    marginLeft: 12,
-    marginRight: 20
+    // position: "absolute",
+    marginLeft: 12
+    // marginRight: 20
   },
   hide: {
     display: "none"
@@ -69,9 +69,8 @@ const styles = theme => ({
     justifyContent: "flex-end"
   },
   toolBar: {
-    display: "flex",
-    position: "relative",
-    alignItems: "space-between"
+    // display: "flex",
+    // position: "relative"
   },
   content: {
     flexGrow: 1,
@@ -100,18 +99,17 @@ const styles = theme => ({
     [theme.breakpoints.up("sm")]: {
       fontSize: "0.875rem",
       display: "block",
-      marginLeft: "4rem"
+      marginLeft: "1rem"
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: "0.875rem",
       display: "block",
-      marginLeft: "4rem"
+      marginLeft: "1rem"
     }
   },
   img: {
     width: "2rem"
   },
-  anchor: {},
 
   loggedInTextStyle: {
     margin: 0,
@@ -123,19 +121,22 @@ const styles = theme => ({
   },
 
   linksStyle: {
-    display: "flex",
     [theme.breakpoints.between("xs", "sm")]: {
       display: "none"
     },
     [theme.breakpoints.up("sm")]: {
       display: "block",
       position: "absolute",
-      right: 0
+      top: "50%",
+      right: 0,
+      transform: "translateY(-50%)"
     },
     [theme.breakpoints.up("lg")]: {
       display: "block",
       position: "absolute",
-      right: 0
+      top: "50%",
+      right: 0,
+      transform: "translateY(-50%)"
     }
   },
   list: {
