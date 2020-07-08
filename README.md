@@ -1,30 +1,31 @@
 # Personal Schedule Manager
 
-### [Personal Schedule Manager 바로가기](https://myplanner-app.firebaseapp.com/)
+### [Personal Schedule Manager](https://myplanner-app.firebaseapp.com/)
 
-#### 개요
+#### Intro 
+Created a simple schedule managing app.
 
-개인의 간단한 일정이나 할 일을 날짜에 따라 기록할 수 있는 일정 관리 앱을 구현했습니다.
-
-```
-로그인 : test@test.com
-비밀번호 : 123456
-```
-
-로 사용해보실 수 있습니다.
-
-#### 주요 기능
+**DUE TO DEPLOY PROBLEM, I WAS NOT ABLE TO CHANGE THE LANGUAGE TO ENGLISH...**
 
 ```
-1. 날짜에 따른 할 일 기록 가능
-2. 완료되지 않은 할 일과 완료된 할 일을 달력에 표시
-3. 회원가입 및 로그인의 구현
-4. 반응형 뷰 지원
+please use this account to login on the very first page
+
+Login : test@test.com
+Password : 123456
+```
+
+
+#### Functions Implemented 
+
+```
+1. Can add todos on a specific day 
+2. Shows todos' condition (completed or not completed) 
+3. Users are able to login and register 
+4. Supports responsive view 
 
 ```
 
-#### 활용 라이브러리
-
+#### Libraries Used 
 - React
 - React-router
 - Redux, Redux Thunk
@@ -34,17 +35,15 @@
 - date-fns
 - Firebase
 
-#### 서비스 환경
+#### Service  
 
-- 반응형 및 터치 이벤트 지원으로 모바일 환경 대응
-- IE 11 지원
+- Supports responsive view and touch events for mobile
+- Supports IE 11 
 
-#### 개선이 필요한 점
+#### Improvements Needed
 
-- 새로고침 시, 항상 오늘의 날짜로 돌아가게 됩니다. 이 때 주소 표시줄은 새로고침 이전의 날짜를 나타냅니다.
-
+- If refreshed, it always goes back to the current date. However, the url still points to the old url.
 ---
 
-##### 완성된 페이지
-
-![완성된 페이지](src/images/myplanner.png)
+##### Completed Page 
+![Completed Page's Screen Shot](src/images/myplanner.png)
