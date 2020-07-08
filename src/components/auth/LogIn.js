@@ -23,7 +23,7 @@ import Link from "@material-ui/core/Link";
 
 // styles
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {},
   main: {
     width: "auto",
@@ -33,25 +33,26 @@ const styles = theme => ({
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
       width: 400,
       marginLeft: "auto",
-      marginRight: "auto"
-    }
+      marginRight: "auto",
+    },
   },
   paper: {
     marginTop: theme.spacing.unit * 5,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
-      .spacing.unit * 3}px`
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${
+      theme.spacing.unit * 3
+    }px`,
   },
 
   img: {
     width: "4rem",
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing.unit
+    marginTop: theme.spacing.unit,
   },
   submit: {
     fontFamily: "'Nanum Gothic', cursive",
@@ -59,48 +60,48 @@ const styles = theme => ({
     color: "white",
     backgroundColor: "#24292e",
     "&:hover": {
-      backgroundColor: "grey"
-    }
+      backgroundColor: "grey",
+    },
   },
   button: {
     color: "white",
-    backgroundColor: "#24292e"
+    backgroundColor: "#24292e",
   },
   text: {
-    marginTop: "20px"
+    marginTop: "20px",
   },
   registerButton: {
     color: "white",
     backgroundColor: "#24292e",
     "&:hover": {
-      backgroundColor: "grey"
+      backgroundColor: "grey",
     },
-    fontFamily: "'Nanum Gothic', cursive"
+    fontFamily: "'Nanum Gothic', cursive",
   },
   cssLabel: {
     "&$cssFocused": {
-      color: "#24292e"
-    }
+      color: "#24292e",
+    },
   },
   cssFocused: {},
   cssUnderline: {
     "&:after": {
-      borderBottomColor: "grey"
-    }
+      borderBottomColor: "grey",
+    },
   },
   fontStyle: {
-    fontFamily: "'Nanum Gothic', cursive"
+    fontFamily: "'Nanum Gothic', cursive",
   },
   errorMsg: {
     margin: "8px 0 0 0",
     fontFamily: "'Nanum Gothic', cursive",
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
 // link to
 
-const LinkToSignUp = props => <RouterLink to="/signup" {...props} />;
+const LinkToSignUp = (props) => <RouterLink to="/signup" {...props} />;
 
 class LogIn extends Component {
   constructor(props) {
@@ -108,17 +109,17 @@ class LogIn extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.logIn(this.state);
   };
@@ -135,7 +136,7 @@ class LogIn extends Component {
             <img className={classes.img} alt="logo" src={logo} />
           </div>
           <Typography className={classes.fontStyle} component="h1" variant="h5">
-            로그인
+            Login
           </Typography>
           <form onSubmit={this.handleSubmit} className={classes.form}>
             <FormControl margin="normal" required fullWidth>
@@ -143,11 +144,11 @@ class LogIn extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="email"
               >
-                이메일
+                Email
               </InputLabel>
               <Input
                 placeholder="example@example.com"
@@ -158,7 +159,7 @@ class LogIn extends Component {
                 onChange={this.handleChange}
                 className={classes.fontStyle}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -167,20 +168,20 @@ class LogIn extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="password"
               >
-                비밀번호
+                Password
               </InputLabel>
               <Input
-                placeholder="최소 6자리를 입력해주세요."
+                placeholder="Password must be at least 6 characters."
                 name="password"
                 type="password"
                 id="password"
                 onChange={this.handleChange}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -191,7 +192,7 @@ class LogIn extends Component {
               variant="contained"
               className={classes.submit}
             >
-              접속하기
+              Login
             </Button>
             <div>
               {authError ? (
@@ -200,7 +201,7 @@ class LogIn extends Component {
             </div>
           </form>
           <div>
-            <p className={classes.text}>아직 회원이 아니신가요?</p>
+            <p className={classes.text}>Not a member yet?</p>
             <Link component={LinkToSignUp} underline="none">
               <Button
                 type="submit"
@@ -208,7 +209,7 @@ class LogIn extends Component {
                 variant="contained"
                 className={classes.registerButton}
               >
-                회원가입
+                Register
               </Button>
             </Link>
           </div>
@@ -220,20 +221,20 @@ class LogIn extends Component {
 }
 
 LogIn.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 // authError를 받아오기 위해
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
   };
 };
 
-const mapDispactchToProps = dispatch => {
+const mapDispactchToProps = (dispatch) => {
   return {
-    logIn: creds => dispatch(logIn(creds))
+    logIn: (creds) => dispatch(logIn(creds)),
   };
 };
 

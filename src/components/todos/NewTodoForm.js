@@ -9,13 +9,13 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 
-const styles = theme => ({
+const styles = (theme) => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   form: {
-    margin: "20px 0 0 20px"
+    margin: "20px 0 0 20px",
   },
   disabled: {
     display: "inline-block",
@@ -24,7 +24,7 @@ const styles = theme => ({
 
     color: "#f44336",
     fontFamily: "Nanum Gothic",
-    cursor: "not-allowed"
+    cursor: "not-allowed",
   },
   input: {
     margin: theme.spacing.unit,
@@ -33,13 +33,13 @@ const styles = theme => ({
     minWidth: "45%",
     borderBottom: "1px solid white",
     color: "white",
-    fontFamily: "Nanum Gothic"
+    fontFamily: "Nanum Gothic",
   },
   cssUnderline: {
     "&:after": {
-      borderBottomColor: "transparent"
-    }
-  }
+      borderBottomColor: "transparent",
+    },
+  },
 });
 
 class NewTodoForm extends Component {
@@ -48,17 +48,17 @@ class NewTodoForm extends Component {
 
     this.state = {
       todo: "",
-      date: this.props.currentDate
+      date: this.props.currentDate,
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     const { todo } = this.state;
     const { currentDate } = this.props;
 
@@ -71,7 +71,7 @@ class NewTodoForm extends Component {
     this.props.createNewTodo(currentDate, todo);
 
     this.setState({
-      todo: ""
+      todo: "",
     });
   };
 
@@ -81,9 +81,9 @@ class NewTodoForm extends Component {
     let undoneTodosLength =
       todos &&
       todos
-        .filter(item => item.authorId === auth.uid)
+        .filter((item) => item.authorId === auth.uid)
         .filter(
-          item =>
+          (item) =>
             compareDates(item.date.toDate(), currentDate) &&
             item.isComplete === false
         ).length;
@@ -91,9 +91,9 @@ class NewTodoForm extends Component {
     let doneTodosLength =
       todos &&
       todos
-        .filter(item => item.authorId === auth.uid)
+        .filter((item) => item.authorId === auth.uid)
         .filter(
-          item =>
+          (item) =>
             compareDates(item.date.toDate(), currentDate) &&
             item.isComplete === true
         ).length;
@@ -103,11 +103,11 @@ class NewTodoForm extends Component {
         <form className={classes.form} onSubmit={this.handleSubmit}>
           {doneTodosLength >= 20 || undoneTodosLength >= 20 ? (
             <p className={classNames(classes.disabled, classes.cssUnderline)}>
-              할 일이 너무 많아요. 몸을 생각하세요!
+              There are too many things to do! Get some rest please.
             </p>
           ) : (
             <Input
-              placeholder="할 일을 적어주세요!"
+              placeholder="What is your plan?"
               className={classNames(classes.input, classes.cssUnderline)}
               id="todo"
               type="text"
@@ -124,18 +124,18 @@ class NewTodoForm extends Component {
 }
 
 NewTodoForm.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    createNewTodo: (date, todo) => dispatch(createNewTodo(date, todo))
+    createNewTodo: (date, todo) => dispatch(createNewTodo(date, todo)),
   };
 };
 

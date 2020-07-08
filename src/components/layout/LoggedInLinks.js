@@ -25,7 +25,7 @@ const LoggedInLinks = props => {
   return (
     <div className={classes.container}>
       <Button className={classes.button} onClick={logOut}>
-        로그아웃
+        Logout
       </Button>
     </div>
   );

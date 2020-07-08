@@ -22,7 +22,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // styles
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {},
   main: {
     width: "auto",
@@ -32,8 +32,8 @@ const styles = theme => ({
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
       width: 400,
       marginLeft: "auto",
-      marginRight: "auto"
-    }
+      marginRight: "auto",
+    },
   },
   paper: {
     marginTop: theme.spacing.unit * 4,
@@ -41,17 +41,18 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
-      .spacing.unit * 3}px`
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${
+      theme.spacing.unit * 3
+    }px`,
   },
 
   img: {
     width: "4rem",
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing.unit
+    marginTop: theme.spacing.unit,
   },
   submit: {
     fontFamily: "'Nanum Gothic', cursive",
@@ -59,52 +60,52 @@ const styles = theme => ({
     color: "white",
     backgroundColor: "#24292e",
     "&:hover": {
-      backgroundColor: "grey"
-    }
+      backgroundColor: "grey",
+    },
   },
 
   cssLabel: {
     "&$cssFocused": {
-      color: "#24292e"
-    }
+      color: "#24292e",
+    },
   },
   cssFocused: {},
   cssUnderline: {
     "&:after": {
-      borderBottomColor: "grey"
-    }
+      borderBottomColor: "grey",
+    },
   },
   signUpText: {
     fontStyle: {
       fontFamily: "'Nanum Gothic', cursive",
-      fontSize: "1.3rem"
-    }
+      fontSize: "1.3rem",
+    },
   },
   fontStyle: {
     fontFamily: "'Nanum Gothic', cursive",
-    fontSize: "1.1rem"
+    fontSize: "1.1rem",
   },
   errorMsg: {
     margin: "8px 0 0 0",
     fontFamily: "'Nanum Gothic', cursive",
-    textAlign: "center"
+    textAlign: "center",
   },
   logInButton: {
     color: "white",
     backgroundColor: "#24292e",
     "&:hover": {
-      backgroundColor: "grey"
+      backgroundColor: "grey",
     },
-    fontFamily: "'Nanum Gothic', cursive"
+    fontFamily: "'Nanum Gothic', cursive",
   },
   text: {
-    marginTop: "20px"
-  }
+    marginTop: "20px",
+  },
 });
 
 // link to
 
-const LinkToLogIn = props => <RouterLink to="/login" {...props} />;
+const LinkToLogIn = (props) => <RouterLink to="/login" {...props} />;
 
 class SignUp extends Component {
   constructor(props) {
@@ -114,17 +115,17 @@ class SignUp extends Component {
       email: "",
       password: "",
       firstName: "",
-      lastName: ""
+      lastName: "",
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.signUp(this.state);
   };
@@ -145,7 +146,7 @@ class SignUp extends Component {
             component="h1"
             variant="h5"
           >
-            회원가입
+            Register
           </Typography>
           <form onSubmit={this.handleSubmit} className={classes.form}>
             <FormControl margin="normal" required fullWidth>
@@ -153,11 +154,11 @@ class SignUp extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="email"
               >
-                이메일
+                Email
               </InputLabel>
               <Input
                 placeholder="example@example.com"
@@ -167,7 +168,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
                 className={classes.fontStyle}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -176,20 +177,20 @@ class SignUp extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="password"
               >
-                비밀번호
+                Password
               </InputLabel>
               <Input
-                placeholder="최소 6자리를 입력해주세요."
+                placeholder="Please enter at least 6 characters."
                 name="password"
                 type="password"
                 id="password"
                 onChange={this.handleChange}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -198,11 +199,11 @@ class SignUp extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="lastName"
               >
-                성
+                Last name
               </InputLabel>
               <Input
                 name="lastName"
@@ -211,7 +212,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
                 className={classes.fontStyle}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -220,11 +221,11 @@ class SignUp extends Component {
                 className={classes.fontStyle}
                 classes={{
                   root: classes.cssLabel,
-                  focused: classes.cssFocused
+                  focused: classes.cssFocused,
                 }}
                 htmlFor="firstName"
               >
-                이름
+                First Name
               </InputLabel>
               <Input
                 name="firstName"
@@ -233,7 +234,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
                 className={classes.fontStyle}
                 classes={{
-                  underline: classes.cssUnderline
+                  underline: classes.cssUnderline,
                 }}
               />
             </FormControl>
@@ -245,7 +246,7 @@ class SignUp extends Component {
               color="primary"
               className={classes.submit}
             >
-              등록하기
+              Register
             </Button>
             <div>
               {authError ? (
@@ -254,7 +255,7 @@ class SignUp extends Component {
             </div>
           </form>
           <div>
-            <p className={classes.text}>이미 회원이신가요?</p>
+            <p className={classes.text}>Already a member?</p>
             <Link component={LinkToLogIn} underline="none">
               <Button
                 type="submit"
@@ -262,7 +263,7 @@ class SignUp extends Component {
                 variant="contained"
                 className={classes.logInButton}
               >
-                로그인 하러가기
+                Login
               </Button>
             </Link>
           </div>
@@ -273,19 +274,19 @@ class SignUp extends Component {
 }
 
 SignUp.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    authError: state.auth.authError
+    authError: state.auth.authError,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: newUser => dispatch(signUp(newUser))
+    signUp: (newUser) => dispatch(signUp(newUser)),
   };
 };
 

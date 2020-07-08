@@ -7,18 +7,18 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-const styles = theme => ({
+const styles = (theme) => ({
   text: {
-    fontFamily: "'Nanum Gothic', cursive"
-  }
+    fontFamily: "'Nanum Gothic', cursive",
+  },
 });
 
-const SidebarLinks = props => {
+const SidebarLinks = (props) => {
   const { handleDrawerClose, logOut, profile, classes } = props;
   return (
     <div>
       <div>
-        <p className={classes.text}>{profile.firstName}님, 환영합니다!</p>
+        <p className={classes.text}>Hello {profile.firstName}, Welcome!</p>
       </div>
 
       <div>
@@ -30,7 +30,7 @@ const SidebarLinks = props => {
             logOut();
           }}
         >
-          로그아웃
+          Logout
         </Button>
       </div>
     </div>
@@ -38,12 +38,12 @@ const SidebarLinks = props => {
 };
 
 SidebarLinks.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    logOut: () => dispatch(logOut())
+    logOut: () => dispatch(logOut()),
   };
 };
 

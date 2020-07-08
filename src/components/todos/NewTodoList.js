@@ -18,39 +18,39 @@ import { withStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import green from "@material-ui/core/colors/green";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     color: green[600],
     "&$checked": {
-      color: green[500]
-    }
+      color: green[500],
+    },
   },
   checked: {},
 
   checkBox: {
-    color: grey[400]
+    color: grey[400],
   },
   textStyle: {
     color: grey[100],
     fontSize: "1.1rem",
-    display: "inline-block"
+    display: "inline-block",
   },
   icon: {
     color: grey[300],
     fontSize: "1.2rem",
     marginLeft: "10px",
-    cursor: "pointer"
+    cursor: "pointer",
   },
 
   todoListBox: {
     display: "table",
-    fontFamily: "'Nanum Gothic', cursive"
+    fontFamily: "'Nanum Gothic', cursive",
   },
   todoListItems: {
     display: "table-cell",
     verticalAlign: "middle",
-    fontFamily: "'Nanum Gothic', cursive"
-  }
+    fontFamily: "'Nanum Gothic', cursive",
+  },
 });
 
 // 작성 날짜 비교
@@ -59,7 +59,7 @@ function compareDates(a, b) {
 }
 
 class NewTodoList extends Component {
-  deleteTodo = todoId => {
+  deleteTodo = (todoId) => {
     this.props.deleteTodo(todoId);
   };
 
@@ -71,7 +71,7 @@ class NewTodoList extends Component {
     this.props.editTodo(todoId, todo);
   };
 
-  disableNewlines = event => {
+  disableNewlines = (event) => {
     const keyCode = event.keyCode || event.which;
 
     if (keyCode === 13) {
@@ -80,7 +80,7 @@ class NewTodoList extends Component {
     }
   };
 
-  validateNumber = event => {
+  validateNumber = (event) => {
     const keyCode = event.keyCode || event.which;
     const string = String.fromCharCode(keyCode);
     const regex = /[0-9,]|\./;
@@ -91,7 +91,7 @@ class NewTodoList extends Component {
     }
   };
 
-  pasteAsPlainText = event => {
+  pasteAsPlainText = (event) => {
     event.preventDefault();
 
     const text = event.clipboardData.getData("text/plain");
@@ -116,8 +116,8 @@ class NewTodoList extends Component {
         <ul>
           {todos &&
             todos
-              .filter(item => item.authorId === auth.uid)
-              .filter(item =>
+              .filter((item) => item.authorId === auth.uid)
+              .filter((item) =>
                 isDone
                   ? item.isComplete &&
                     compareDates(item.date.toDate(), currentDate)
@@ -125,7 +125,7 @@ class NewTodoList extends Component {
                     compareDates(item.date.toDate(), currentDate)
               )
               .sort((a, b) => a.createdAt.toDate() - b.createdAt.toDate())
-              .map(item => {
+              .map((item) => {
                 return (
                   <div key={item.id} className={classes.todoListBox}>
                     <Checkbox
@@ -138,7 +138,7 @@ class NewTodoList extends Component {
                       onChange={() => this.checkTodo(item.id, !item.isComplete)}
                       classes={{
                         root: classes.root,
-                        checked: classes.checked
+                        checked: classes.checked,
                       }}
                     />
                     <Typography
@@ -147,13 +147,13 @@ class NewTodoList extends Component {
                         classes.todoListItems
                       )}
                     >
-                      <Tooltip title="클릭하면 수정이 가능합니다.">
+                      <Tooltip title="Click to edit.">
                         <ContentEditable
                           html={item.todo}
                           onKeyPress={this.disableNewlines}
                           onPaste={this.pasteAsPlainText}
                           onFocus={this.highlightAll}
-                          onChange={e => {
+                          onChange={(e) => {
                             clearTimeout(this.timer);
                             let value = e.target.value;
                             this.timer = setTimeout(() => {
@@ -190,16 +190,16 @@ class NewTodoList extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    deleteTodo: todoId => dispatch(deleteTodo(todoId)),
+    deleteTodo: (todoId) => dispatch(deleteTodo(todoId)),
     checkTodo: (todoId, newStatus) => dispatch(checkTodo(todoId, newStatus)),
-    editTodo: (todoId, todo) => dispatch(editTodo(todoId, todo))
+    editTodo: (todoId, todo) => dispatch(editTodo(todoId, todo)),
   };
 };
 
 NewTodoList.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default connect(

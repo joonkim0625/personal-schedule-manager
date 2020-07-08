@@ -9,29 +9,29 @@ import Typography from "@material-ui/core/Typography";
 import red from "@material-ui/core/colors/red";
 import blue from "@material-ui/core/colors/blue";
 
-const styles = theme => ({
+const styles = (theme) => ({
   dateText: {
     fontSize: "26px",
     color: "white",
-    fontFamily: "'Nanum Gothic', cursive "
+    fontFamily: "'Nanum Gothic', cursive ",
   },
 
   redText: {
-    color: red[500]
+    color: red[500],
   },
   blueText: {
-    color: blue[500]
+    color: blue[500],
   },
   container: {
-    margin: "8px 0 0 28px"
-  }
+    margin: "8px 0 0 28px",
+  },
 });
 
 const options = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "numeric"
+  day: "numeric",
 };
 
 class ShowDate extends Component {
@@ -40,8 +40,8 @@ class ShowDate extends Component {
 
     this.state = {
       currentDay: this.props.currentDate.toLocaleDateString("en", {
-        weekday: "long"
-      })
+        weekday: "long",
+      }),
     };
   }
 
@@ -54,14 +54,14 @@ class ShowDate extends Component {
         <div className={classes.container}>
           <Typography className={classes.dateText}>
             <span>
-              {currentDate.toLocaleString("ko-kr", { year: "numeric" })}
+              {currentDate.toLocaleString("en-US", { year: "numeric" })}
             </span>
             {` `}
             <span>
-              {currentDate.toLocaleString("ko-kr", { month: "long" })}
+              {currentDate.toLocaleString("en-US", { month: "long" })}
             </span>{" "}
             <span>
-              {currentDate.toLocaleDateString("ko-kr", { day: "numeric" })}
+              {currentDate.toLocaleDateString("en-US", { day: "numeric" })}
             </span>{" "}
             <span
               className={classNames(
@@ -70,7 +70,7 @@ class ShowDate extends Component {
                 classes.dateText
               )}
             >
-              {currentDate.toLocaleDateString("ko-kr", { weekday: "long" })}
+              {currentDate.toLocaleDateString("en-US", { weekday: "long" })}
             </span>
           </Typography>
         </div>
@@ -80,7 +80,7 @@ class ShowDate extends Component {
 }
 
 ShowDate.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(ShowDate);

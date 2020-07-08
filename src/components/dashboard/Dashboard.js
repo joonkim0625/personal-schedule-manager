@@ -23,43 +23,43 @@ import Typography from "@material-ui/core/Typography";
 
 // styles
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    padding: "12px"
+    padding: "12px",
   },
   expansionPanel: {
-    width: "100%"
+    width: "100%",
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: "center"
+    textAlign: "center",
   },
   gridContainer: {},
 
   todoGrid: {
     width: "100%",
-    padding: "12px 0px 0px 0px !important"
+    padding: "12px 0px 0px 0px !important",
   },
   calendarGrid: {
     width: "100%",
-    padding: "0 0 0 1px !important"
+    padding: "0 0 0 1px !important",
   },
   todoGridContainer: {
-    backgroundColor: "#24292e"
+    backgroundColor: "#24292e",
   },
   todoContainer: {
-    minHeight: "190px"
+    minHeight: "190px",
   },
   sectionTitle: {
     margin: "20px 0 0 30px",
     color: "white",
     fontFamily: "'Nanum Gothic', cursive",
-    display: "inline-block"
+    display: "inline-block",
   },
   showDate: {
-    margin: "20px 0 0 20px"
-  }
+    margin: "20px 0 0 20px",
+  },
 });
 
 class Dashboard extends Component {
@@ -73,18 +73,18 @@ class Dashboard extends Component {
       handleDateChange,
       handleMonthChange,
       handleNextMonth,
-      handlePrevMonth
+      handlePrevMonth,
     } = this.props;
 
     // 할 일 퍼센트(전체) 계산을 위한 변수들
     let totalTodos =
-      todos && todos.filter(item => item.authorId === auth.uid).length;
+      todos && todos.filter((item) => item.authorId === auth.uid).length;
 
     let finishedTodos =
       todos &&
       todos
-        .filter(item => item.authorId === auth.uid)
-        .filter(item => item.isComplete === true).length;
+        .filter((item) => item.authorId === auth.uid)
+        .filter((item) => item.isComplete === true).length;
 
     let leftTodos = finishedTodos / totalTodos;
 
@@ -128,7 +128,7 @@ class Dashboard extends Component {
               <div>
                 <div className={classes.todoContainer}>
                   <Typography className={classes.sectionTitle}>
-                    오늘의 할 일
+                    Today's TODOs{" "}
                   </Typography>
                   <NewTodoList
                     todos={todos}
@@ -138,7 +138,7 @@ class Dashboard extends Component {
                 </div>
                 <div className={classes.todoContainer}>
                   <Typography className={classes.sectionTitle}>
-                    완료된 할 일
+                    Completed TODOs
                   </Typography>
                   <NewTodoList
                     todos={todos}
@@ -157,24 +157,24 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 // loading data
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    todos: state.firestore.ordered.todos
+    todos: state.firestore.ordered.todos,
   };
 };
 
-export default props => {
+export default (props) => {
   const HOC = compose(
     connect(mapStateToProps),
     firestoreConnect([
       { collection: "contents", orderBy: ["createdAt", "desc"] },
-      { collection: "todos", orderBy: ["createdAt"] }
+      { collection: "todos", orderBy: ["createdAt"] },
     ])
   )(withStyles(styles)(Dashboard));
 
@@ -185,7 +185,7 @@ export default props => {
         handleDateChange,
         handleMonthChange,
         handleNextMonth,
-        handlePrevMonth
+        handlePrevMonth,
       }) => (
         <HOC
           currentDate={state.currentDate}
